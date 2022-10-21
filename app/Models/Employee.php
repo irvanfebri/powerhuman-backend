@@ -10,6 +10,11 @@ class Employee extends Model
 {
     use HasFactory, SoftDeletes;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
     protected $fillable = [
         'name',
         'email',
@@ -22,4 +27,14 @@ class Employee extends Model
         'is_verified',
         'verified_at'
     ];
+
+    public function team()
+    {
+        return $this->belongsTo(Team::class);
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
 }

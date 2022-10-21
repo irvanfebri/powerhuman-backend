@@ -10,8 +10,18 @@ class Responsibility extends Model
 {
     use HasFactory, SoftDeletes;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
     protected $fillable = [
         'name',
-        'role'
+        'role_id'
     ];
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
 }
